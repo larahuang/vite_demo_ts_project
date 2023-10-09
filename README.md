@@ -273,3 +273,38 @@ index.html加入
 ```
 <link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
 ```
+
+### 安裝套件
+<a href="https://blog-lara.vercel.app/2022/12/03/viteelement-plus/" target="_blank">說明</a>
+```
+npm install element-plus --save
+```
+自動導入
+```
+npm install -D unplugin-vue-components unplugin-auto-import
+```
+在vite.config.ts,加入以下
+```
+/*加入以下*/
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite';/*element 自動導入*/
+import Components from 'unplugin-vue-components/vite';/*element 自動導入*/
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';/**/
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    vue(),
+    /*element 自動導入*/
+    AutoImport({
+     resolvers: [ElementPlusResolver()],
+    }),
+   /*element 自動導入*/
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
+})
+
+```
