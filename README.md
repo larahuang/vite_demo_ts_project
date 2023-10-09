@@ -1,4 +1,3 @@
-=======
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
@@ -341,6 +340,3 @@ module.exports = {
 ```
 npm i vite-plugin-imagemin -D
 ```
->>>>>>> bb2350c76a351d416830cdceaf958333733e8021
-=======
->>>>>>> 77103a3dc97fb467db7a152f973e6005103a2e59
