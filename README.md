@@ -17,7 +17,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-### 
+### create vite@latest <project>
 node版本 v18.12.1
 ```
 npm create vite@latest <project>
@@ -47,5 +47,50 @@ npm run dev
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
   ➜  press h to show help
+
+```
+
+### 環境變數設定
+修改vite.config.js 檔案，加入以下
+```
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';//環境變數設定加入這些
+import { resolve } from 'path';//環境變數設定加入這些
+
+export default defineConfig({
+  base: '/',//環境變數設定加入這些
+  plugins: [
+    vue(),
+  ],
+  ////環境變數設定加入這些
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  envDir: resolve(__dirname, './env'),
+});
+```
+
+** 處理錯誤：修改vite.config.ts配置與安裝 @types/node
+```
+npm install --save-dev @types/node
+```
+
+＊＊在專案內加入env資料夾資料夾內新增：.env.development,.env.production,.env.staging
+開發端環境=>.env.development
+正式主機位置=>.env.production
+測試環境=>.env.staging
+
+環境變數 ＝>VITE_API_URL(規定為VITE_開頭全大寫＿隔開)
+```
+VITE_API_URL = 'Api網址'
+```
+
+
+使用
+```
+import.meta.env.VITE_API_URL
 
 ```
