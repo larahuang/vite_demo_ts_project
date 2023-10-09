@@ -178,12 +178,12 @@ console.log(import.meta.env.VITE_API_URL, count.value)
 </script>
 ```
 
-### 安裝
+### 安裝axios
 ```
 npm install axios --save
 
 ```
-頁面載入
+第一種寫法=>axios頁面載入
 App.vue測試
 ```
 <script setup lang="ts">
@@ -210,5 +210,39 @@ App.vue測試
 
 </script>
 ```
+第二種寫法=>pinia axios
+
+```
+import { defineStore } from 'pinia'
+import axios from 'axios'
+//引入vue Composition API
+import { ref, computed } from 'vue'
+// @ts-ignore
+import { counterType,dataListType } from '../types/counter.ts'
+export const useCounterStore = defineStore('counter', () => { 
+    const dataLists = ref<any>([])
+    const getLists = async () => { 
+        try { 
+            const api = `${import.meta.env.VITE_API_URL}/v1/bpi/currentprice.json`;
+             const res = await axios.get(api)
+            if (res.status === 200) { 
+                dataLists.value = res.data.bpi;
+            } else {
+                 console.log('Fail')
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }    
+       
+    }
+    return {
+        dataLists,getLists,
+    }
+})
+
+```
+在App.vue引入
+//引入pinia storeToRefs => 宣告=>解構
 
 

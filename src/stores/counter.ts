@@ -1,8 +1,9 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import axios from 'axios'
 //引入vue Composition API
-import { ref, computed } from 'vue';
+import { ref, computed } from 'vue'
 // @ts-ignore
-import { counterType } from '../types/counter.ts'
+import { counterType,dataListType } from '../types/counter.ts'
 //改為Function 寫法與Composition API
 export const useCounterStore = defineStore('counter', () => { 
     const count = ref<any>(0);
@@ -17,10 +18,25 @@ export const useCounterStore = defineStore('counter', () => {
     {
         count.value ++
     }
-    const cardLists = ref([])
-    
+
+    const dataLists = ref<any>([])
+    const getLists = async () => { 
+        try { 
+            const api = `${import.meta.env.VITE_API_URL}/v1/bpi/currentprice.json`;
+             const res = await axios.get(api)
+            if (res.status === 200) { 
+                dataLists.value = res.data.bpi;
+            } else {
+                 console.log('Fail')
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }    
+       
+    }
      return {
         count,addCount,doubleCount,
-        cardLists
+        dataLists,getLists,
     }
 })
