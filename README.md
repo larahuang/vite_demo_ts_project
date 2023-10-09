@@ -273,3 +273,24 @@ index.html加入
 ```
 <link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
 ```
+
+
+### 安裝 ESLint
+https://blog-lara.vercel.app/2023/07/22/eslint_ts/
+https://www.npmjs.com/package/stylelint-order
+```
+npm install @typescript-eslint/eslint-plugin --save-dev
+npm install @typescript-eslint/parser --save-dev
+npm install @vue/eslint-config-typescript --save-dev
+npm install eslint --save-dev
+npm install eslint-plugin-typescript --save-dev
+npm install eslint-plugin-vue  --save-dev
+npm install prettier --save-dev
+npm install stylelint --save-dev
+npm install stylelint-order --save-dev
+npm install stylelint-config-html  --save-dev
+npm install stylelint-config-standard  --save-dev
+npm install stylelint-config-standard-vue  --save-dev
+npm install stylelint-order  --save-dev
+
+```

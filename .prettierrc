@@ -1,0 +1,57 @@
+{
+    "bracketSameLine": true,
+    "printWidth": 120,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "overrides": [
+        {
+            "files": "*.css",
+            "options": {
+                "parser": "css"
+            }
+        },
+        {
+            "files": "*.html",
+            "options": {
+                "parser": "html",
+                "singleAttributePerLine": true
+            }
+        },
+        {
+            "files": "*.js",
+            "options": {
+                "arrowParens": "always",
+                "endOfLine": "crlf",
+                "parser": "espree",
+                "singleQuote": true
+            }
+        },
+        {
+            "files": "*.json",
+            "options": {
+                "parser": "json"
+            }
+        },
+        {
+            "files": "*.scss",
+            "options": {
+                "parser": "scss",
+                "singleQuote": true
+            }
+        },
+        {
+            "files": "*.ts",
+            "options": {
+                "parser": "typescript"
+            }
+        },
+        {
+            "files": "*.vue",
+            "options": {
+                "endOfLine": "crlf",
+                "parser": "vue",
+                "vueIndentScriptAndStyle": true
+            }
+        }
+    ]
+}
