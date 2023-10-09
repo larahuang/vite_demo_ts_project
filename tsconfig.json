@@ -9,7 +9,7 @@
         "paths": {
             "@/*": ["src/*"]
         },
-        "types": ["vite-plugin-vue-layouts/client"],
+      //  "types": ["vite-plugin-vue-layouts/client"],
         "forceConsistentCasingInFileNames": true, // 檢查導入文件名稱和實際文件名稱的大小寫是否一致
 
         /* Bundler mode */

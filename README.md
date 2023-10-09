@@ -599,11 +599,56 @@ npm install eslint-plugin-typescript --save-dev
 npm install eslint-plugin-vue  --save-dev
 npm install prettier --save-dev
 npm install stylelint --save-dev
-npm install stylelint-order --save-dev
+
 npm install stylelint-config-html  --save-dev
 npm install stylelint-config-standard  --save-dev
 npm install stylelint-config-standard-vue  --save-dev
 npm install stylelint-order  --save-dev
+npm install vue-eslint-parser --save-dev
+npm install postcss --save-dev
+npm install postcss-html --save-dev
+```
 
+
+### 打包優化
+一 安裝 rollup-plugin-visualizer
+```
+npm i rollup-plugin-visualizer -D
+```
+vite.config.js  引入visualizer()
+//引入
+import { visualizer } from "rollup-plugin-visualizer";
+
+module.exports = {
+    plugins: [
+    vue(), 
+    visualizer()//visualizer exports 
+    ],
+};
+打包之後會在項目根目錄生成 stats.html 文件，打開
+
+二 GZIP 配置
+```
+npm i vite-plugin-compression -D
+```
+vite.config.js  引入
+```
+import { vite-plugin-compression } from “vite-plugin-compression”;
+//引入visualizer
+import { visualizer } from "rollup-plugin-visualizer";
+//引入vite-plugin-compression
+import viteCompression from 'vite-plugin-compression'
+module.exports = {
+    plugins: [
+    vue(), 
+    visualizer(),
+    viteCompression()//引入vite-plugin-compression
+    ],
+};
+```
+打包後就會生成 gzip 文件了
+三 圖片壓縮
+```
+npm i vite-plugin-imagemin -D
 ```
 >>>>>>> bb2350c76a351d416830cdceaf958333733e8021
