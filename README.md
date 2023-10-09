@@ -94,3 +94,91 @@ VITE_API_URL = 'Api網址'
 import.meta.env.VITE_API_URL
 
 ```
+
+### 安裝pinia
+```
+npm install --save pinia
+
+```
+main.ts引入
+```
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'//加入pinia
+import router from './router/index' 
+import './style.css'
+import App from './App.vue'
+const pinia = createPinia() //加入pinia
+
+const app = createApp(App)
+    app.use(pinia)//加入pinia
+app.mount('#app')
+
+```
+新增counter.ts
+```
+import { defineStore } from 'pinia';
+//引入vue Composition API
+import { ref, computed } from 'vue';
+// @ts-ignore
+import { counterType } from '../types/counter.ts'
+//改為Function 寫法與Composition API
+export const useCounterStore = defineStore('counter', () => { 
+    const count = ref<any>(0);
+
+    //computed
+    const doubleCount = computed(() =>
+    {
+       return count.value * 2
+    })
+    
+    const addCount = () =>
+    {
+        count.value ++
+    }
+    const cardLists = ref([])
+    
+     return {
+        count,addCount,doubleCount,
+        cardLists
+    }
+})
+```
+在App.vue測試
+```
+<template>
+  <div>
+  <h1 style="color:#333">{{ count  }}</h1>
+    <button @click="clickAdd">Add</button>
+  </div>
+</template>
+
+//引入pinia storeToRefs => 宣告store = useCounterStore() =>解構store addCount函式 ,storeToRefs(store) 解構數據取出counter, cardLists;
+<script setup lang="ts">
+// @ts-ignore
+import { storeToRefs } from 'pinia';
+// @ts-ignore
+import { ref, onMounted } from 'vue';
+// @ts-ignore
+import { useCounterStore } from './stores/counter.ts';
+//引入 import {storeToRefs } from 'pinia'
+//宣告store = useCounterStore()
+const store = useCounterStore();
+//解構store,數據取出counter, cardLists
+// @ts-ignore
+const { count, cardLists } = storeToRefs(store);
+const {  addCount } = store;
+
+const clickAdd = () => {
+  addCount()
+}
+onMounted(() => {
+ // fetchApi();
+});
+console.log(import.meta.env.VITE_API_URL, count.value)
+</script>
+
+
+
+```
+
+
