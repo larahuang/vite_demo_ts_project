@@ -23,11 +23,8 @@
 </template>
 
 <script setup lang="ts">
-// @ts-ignore
 import { storeToRefs } from 'pinia';
-// @ts-ignore
 import axios from 'axios'
-// @ts-ignore
 import { ref, onMounted } from 'vue';
 // @ts-ignore
 import { useCounterStore } from './stores/counter.ts';
