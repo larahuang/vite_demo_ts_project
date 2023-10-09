@@ -258,3 +258,18 @@ App.vue加入
 ```
 <router-view></router-view>
 ```
+
+
+### Vite 動態title
+```
+npm i --save vue-page-title
+
+```
+在main.ts引入 vue-page-title
+
+### 修改 icon
+public新增 img/logo.svg
+index.html加入
+```
+<link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
+```

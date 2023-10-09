@@ -9,7 +9,8 @@ const routes: Array<RouteRecordRaw> = [
         // redirect: '/index',
             // component: Layout,
           // @ts-ignore
-         component: () => import('../views/Home.vue')
+        component: () => import('../views/Home.vue'),
+        meta: {  title:  '關於我們' }
     },
     {
         path: '/:catchAll(.*)',
