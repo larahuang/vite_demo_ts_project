@@ -35,7 +35,7 @@ export const useCounterStore = defineStore('counter', () => {
         }    
        
     }
-     return {
+    return {
         count,addCount,doubleCount,
         dataLists,getLists,
     }

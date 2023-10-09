@@ -246,3 +246,15 @@ export const useCounterStore = defineStore('counter', () => {
 //引入pinia storeToRefs => 宣告=>解構
 
 
+### 安裝router
+```
+npm install --save vue-router@next
+```
+在src資料夾內創建router/index.ts
+在src下創建 views/Home.vue 和 views/errorPage/404.vue
+在main.ts引入 router
+
+App.vue加入  
+```
+<router-view></router-view>
+```

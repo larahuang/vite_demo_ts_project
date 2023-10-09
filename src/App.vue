@@ -16,6 +16,8 @@
         {{ item.code }}-{{ item.symbol }}={{ item.rate }}
       </li>
     </ul>
+    <router-view></router-view>
+
   </div>
 
 </template>
