@@ -176,9 +176,39 @@ onMounted(() => {
 });
 console.log(import.meta.env.VITE_API_URL, count.value)
 </script>
+```
 
+### 安裝
+```
+npm install axios --save
 
+```
+頁面載入
+App.vue測試
+```
+<script setup lang="ts">
+    // @ts-ignore
+    import axios from 'axios'
+    const getData = async () => {
+        try {
+            console.log('環境變數加入位址', import.meta.env.VITE_API_URL)
+            const api = `${import.meta.env.VITE_API_URL}/v1/bpi/currentprice.json`
 
+            await axios.get(api)
+            .then((res: { data: any; }) => {
+                lists.value = res.data;
+                console.log('lists.value', lists.value)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    onMounted(() => {
+        getData();
+    });
+
+</script>
 ```
 
 

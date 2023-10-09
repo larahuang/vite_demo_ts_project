@@ -18,6 +18,8 @@
 // @ts-ignore
 import { storeToRefs } from 'pinia';
 // @ts-ignore
+import axios from 'axios'
+// @ts-ignore
 import { ref, onMounted } from 'vue';
 // @ts-ignore
 import { useCounterStore } from './stores/counter.ts';
@@ -30,14 +32,29 @@ const store = useCounterStore();
 // @ts-ignore
 const { count, cardLists } = storeToRefs(store);
 const {  addCount } = store;
-
+const lists = ref<any>();
 const clickAdd = () => {
   addCount()
 }
+
+const getData = async () => {
+  try {
+    console.log('位址', import.meta.env.VITE_API_URL)
+    const api = `${import.meta.env.VITE_API_URL}/v1/bpi/currentprice.json`
+
+    await axios.get(api)
+      .then((res: { data: any; }) => {
+        lists.value = res.data;
+        console.log('lists.value', lists.value)
+      })
+  } catch (error) {
+    console.log(error)
+  }
+}
 onMounted(() => {
- // fetchApi();
+  // fetchApi();
+ getData()
 });
-console.log(import.meta.env.VITE_API_URL, count.value)
 </script>
 
 <style scoped>
