@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface counterType{
-    count?: number |null |any,
-    doubleCount?: number |null |any, 
+    count?: number |null | any,
+    doubleCount?: number |null |any,
 }
 
 export interface dataListType{
