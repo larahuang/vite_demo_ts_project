@@ -15,6 +15,13 @@ const routes: Array<RouteRecordRaw> = [
         meta     : { title: '關於我們' }
     },
     {
+        path     : '/login',
+        name     : 'Login',
+        // @ts-ignore
+        component: () => import('../views/Login.vue'),
+        meta     : { title: '登入頁面' }
+    },
+    {
         path     : '/:catchAll(.*)',
         name     : '404',
         // @ts-ignore
