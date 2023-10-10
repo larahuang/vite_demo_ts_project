@@ -13,9 +13,9 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // @ts-ignore
 import { visualizer } from "rollup-plugin-visualizer"
 // @ts-ignore
-import viteImagemin from "vite-plugin-imagemin"
+import viteImagemin  from "vite-plugin-imagemin"
 // @ts-ignore
-import viteCompression from "vite-plugin-compression"
+import viteCompression from 'vite-plugin-compression'
 
 export default defineConfig({
     base   : './',
