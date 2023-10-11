@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>{{ title }}</h1>
+
 </div>
 </template>
 
@@ -10,6 +10,6 @@ import { ref, onMounted } from 'vue';
 const title = ref<string | any>('首頁');
 
 onMounted(() => {
-  
+
 });
 </script>
