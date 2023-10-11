@@ -16,6 +16,16 @@
         {{ item.code }}-{{ item.symbol }}={{ item.rate }}
       </li>
     </ul>
+    <div>
+      切換語言：
+      <select @change="changeLang">
+        <option value="zh-TW">中文</option>
+        <option value="en-US">English</option>
+      </select>
+    </div>
+    <p>
+      {{ $t('nav_menu.home') }} 
+    </p>
     <router-view></router-view>
 
   </div>
@@ -26,11 +36,15 @@
 import { storeToRefs } from 'pinia';
 import axios from 'axios'
 import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n'
 // @ts-ignore
 import { useCounterStore } from './stores/counter.ts';
 //引入 import {storeToRefs } from 'pinia'
 
-
+const { locale } = useI18n()
+const changeLang = (e) => {
+  locale.value = e.target.value
+}
 //宣告store = useCounterStore()
 const store = useCounterStore();
 //解構store,數據取出counter, cardLists
