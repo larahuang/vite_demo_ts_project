@@ -10,3 +10,14 @@ export interface dataListType{
     rate?: string | null | any,
     rate_float?: number |null |any,
 }
+export interface homeMenuType{
+    name?: string |null |any,
+    id?: string |null |any,
+   link: string | null | any,
+}
+export interface langListType{
+    id?: string |null |any,
+    name?: string |null |any,
+    href?: string | null | any,
+}
+

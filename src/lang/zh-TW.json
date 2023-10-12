@@ -1,0 +1,8 @@
+{
+    "edit": "編輯",
+    "__text-test-HMR__": "以測試 HMR 功能",
+    "nav_menu":{
+        "home":"首頁",
+        "login":"登入"
+    }
+}
