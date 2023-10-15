@@ -2,24 +2,36 @@
 //createWebHashHistory
 import { createRouter, createWebHistory,  RouterOptions, Router, RouteRecordRaw } from 'vue-router'
 // @ts-ignore
-//import Layout from '../layout/Layout.vue';
+import Layout from '../layout/Layout.vue';
 
 const routes: Array<RouteRecordRaw> = [
     { //前台
         path     : '/',
-        name     : 'Home',
-        // redirect: '/index',
-        // component: Layout,
-        // @ts-ignore
-        component: () => import('../views/Home.vue'),
-        meta     : { title: '關於我們' }
-    },
-    {
-        path     : '/login',
-        name     : 'Login',
-        // @ts-ignore
-        component: () => import('../views/Login.vue'),
-        meta     : { title: '登入頁面' }
+        redirect : '/index',
+        component: Layout,
+        children : [
+            {
+                path     : 'index',
+                component: () => import('../views/Home.vue'),
+                name     : 'Home',
+                meta     : { title: '首頁' }
+            },
+
+            {
+                path     : 'register',
+                name     : 'Register',
+                // @ts-ignore
+                component: () => import('../views/Register.vue'),
+                meta     : { title: '註冊' }
+            },
+            {
+                path     : 'login',
+                name     : 'Login',
+                // @ts-ignore
+                component: () => import('../views/Login.vue'),
+                meta     : { title: '登入' }
+            },
+        ]
     },
     {
         path     : '/:catchAll(.*)',

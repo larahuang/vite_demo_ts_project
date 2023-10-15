@@ -1,0 +1,88 @@
+
+body {
+    display: block;
+    margin: 0px;
+}
+
+a{
+    text-decoration: none;
+    color:#80808080;
+    &:hover,&:focus{
+        text-decoration: none;
+    }
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    li  {
+        display : flex;
+        padding:10px;
+        list-style-type: none;
+
+    }
+}
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo{
+    &:hover {
+        filter: drop-shadow(0 0 2em #646cffaa);
+    }
+    &.vue{
+        &:hover {
+            filter: drop-shadow(0 0 2em #42b883aa);
+        }
+    }
+}
+
+.flex-row-nowrap-space-between{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    .item{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+}
+.custom-select {
+  position: relative;
+  font-family: Arial;
+    select {
+        appearance: none;
+        /*  safari  */
+        -webkit-appearance: none;
+        /*  other styles for aesthetics */
+        width: 100%;
+        font-size: 1.15rem;
+        padding: .5em;
+        background-color: #fff;
+        border: 1px solid #caced1;
+        border-radius: 0.25rem;
+        color: #000;
+        cursor: pointer;
+    }
+    &::before,
+    &::after {
+        font-size: 0.3rem;
+        content: "";
+        position: absolute;
+        right: 1rem;
+        pointer-events: none;
+    }
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space-collapse: collapse;
+    text-wrap: nowrap;
+    min-height: 10px;
+    padding: 0px 2px 1px;
+}

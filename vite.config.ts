@@ -17,6 +17,7 @@ import viteImagemin  from "vite-plugin-imagemin"
 // @ts-ignore
 import viteCompression from 'vite-plugin-compression'
 
+
 export default defineConfig({
     base   : './',
     plugins: [
@@ -39,4 +40,10 @@ export default defineConfig({
         }
     },
     envDir: resolve(__dirname, './env'),
+    server: {
+        proxy: {
+            "/api": ''
+        }
+    }
 })
+

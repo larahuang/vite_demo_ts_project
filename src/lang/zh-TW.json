@@ -1,8 +1,12 @@
 {
-    "edit": "編輯",
-    "__text-test-HMR__": "以測試 HMR 功能",
     "nav_menu":{
         "home":"首頁",
-        "login":"登入"
+        "login":"登入",
+        "register":"註冊"
+    },
+    "form_validate":{
+        "PleaseConfirmPassword":"請再輸入一次密碼!",
+        "PleaseEnterPassword":"請輸入電子信箱!",
+        "PasswordCannotBeEmpty":"密碼不能為空!"
     }
 }

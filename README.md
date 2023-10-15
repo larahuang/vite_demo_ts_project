@@ -345,6 +345,6 @@ npm i vite-plugin-imagemin -D
 ### 安裝語系 vue-i18n
 ```
 npm install vue-i18n@next --save
-```
+
 <a href="https://muki.tw/tech/vue/typescript-vue3-vue-i18n/" target="_blank">參考</a>
 <b>src新增lang資料夾</b>
