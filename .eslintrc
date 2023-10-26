@@ -11,6 +11,10 @@
         // "no-debugger": process.env.NODE_ENV === 'production' ? 'error' : 'off',
         // Suggestions
         // 'no-console': process.env.NODE_ENV === 'production' ? ['error', { allow: ['info', 'warn', 'error'] }] : 'off',
+        //注意：您必須停用基本規則，因為它可能會報告不正確的錯誤
+         "no-unused-vars": "off",
+         "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-unused-vars": "error",
         "prefer-arrow-callback": "error",
         // Layout & Formatting
         "array-bracket-newline": "error",
@@ -70,20 +74,26 @@
             "files": ["*.js"],
             "rules": {
                 // Layout & Formatting
+                //啟用附加規則
                 "indent": [
                     "error",
-                    4,
-                    {
-                        "SwitchCase": 1,
-                        "FunctionDeclaration": { "parameters": "first" },
-                        "CallExpression": { "arguments": "first" },
-                        "ArrayExpression": "first",
-                        "ObjectExpression": "first",
-                        "ImportDeclaration": "first"
-                    }
+                    4
+                    // {
+                    //     "SwitchCase": 1,
+                    //     "FunctionDeclaration": { "parameters": "first" },
+                    //     "CallExpression": { "arguments": "first" },
+                    //     "ArrayExpression": "first",
+                    //     "ObjectExpression": "first",
+                    //     "ImportDeclaration": "first"
+                    // }
                 ],
-                "quotes": ["error", "single"],
+                "quotes": ["error", "double"],
                 "semi": ["error", "always"],
+                //透過擴展「eslint：推薦」來覆蓋配置集
+                "no-empty": "warn",
+                "no-cond-assign": ["error", "always"],
+                //從基本配置停用規則
+                "for-direction": "off",
                 "semi-spacing": ["error", { "before": false, "after": true }],
                 "semi-style": ["error", "last"],
                 "space-before-blocks": "error",

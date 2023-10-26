@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <div>
+    <div class="w-fill">
         <Nav />
         <router-view />
     </div>

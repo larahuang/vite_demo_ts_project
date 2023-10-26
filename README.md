@@ -343,8 +343,24 @@ npm i vite-plugin-imagemin -D
 
 
 ### 安裝語系 vue-i18n
+
+
 ```
 npm install vue-i18n@next --save
 
 <a href="https://muki.tw/tech/vue/typescript-vue3-vue-i18n/" target="_blank">參考</a>
 <b>src新增lang資料夾</b>
+官網提供的錯誤訊息處理
+https://vue-i18n.intlify.dev/guide/advanced/optimization#reduce-bundle-size-with-feature-build-flags
+// vite.config.ts
+
+
+
+https://lokalise.com/blog/vue-i18n/
+https://element-plus.org/en-US/component/config-provider.html#i18n-configurations
+
+
+https://juejin.cn/post/7021021063647592456
+
+
+https://stackoverflow.com/questions/72545700/vue-3-vite-typescript-dev-build-not-picking-up-ts-errors

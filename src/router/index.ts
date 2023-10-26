@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
         children : [
             {
                 path     : 'index',
-                component: () => import('../views/Home.vue'),
+                component: () => import('@/views/Home.vue'),
                 name     : 'Home',
                 meta     : { title: '首頁' }
             },
@@ -21,14 +21,14 @@ const routes: Array<RouteRecordRaw> = [
                 path     : 'register',
                 name     : 'Register',
                 // @ts-ignore
-                component: () => import('../views/Register.vue'),
+                component: () => import('@/views/Register.vue'),
                 meta     : { title: '註冊' }
             },
             {
                 path     : 'login',
                 name     : 'Login',
                 // @ts-ignore
-                component: () => import('../views/Login.vue'),
+                component: () => import('@/views/Login.vue'),
                 meta     : { title: '登入' }
             },
         ]
@@ -37,7 +37,7 @@ const routes: Array<RouteRecordRaw> = [
         path     : '/:catchAll(.*)',
         name     : '404',
         // @ts-ignore
-        component: () => import('../views/errorPage/404.vue'),
+        component: () => import('@/views/errorPage/404.vue'),
         meta     : {
             title: '404'
         },

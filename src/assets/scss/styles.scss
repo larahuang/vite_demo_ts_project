@@ -1,3 +1,16 @@
+$color-808080:#808080;
+$color-333:#333;
+
+
+.bg-fab6b6{
+background-color: #fab6b6;
+}
+.bg-a0cfff{
+background-color: #a0cfff;
+}
+.bg-d4e3fe{
+   background-color: #d4e3fe;
+}
 
 body {
     display: block;
@@ -6,12 +19,35 @@ body {
 
 a{
     text-decoration: none;
-    color:#80808080;
+    color:$color-808080;
     &:hover,&:focus{
         text-decoration: none;
+         color:$color-333;
     }
 }
+:where(.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl){
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
 
+}
+.w-fill{
+width: 100%;
+}
+.w-95{
+    width: 95%;
+    margin: auto;
+}
+.container-fluid,.w-fill{
+     width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin: auto;
+}
 ul{
     display: flex;
     list-style-type: none;
@@ -51,10 +87,12 @@ ul{
         flex-wrap: nowrap;
     }
 }
+
 .custom-select {
   position: relative;
   font-family: Arial;
     select {
+        display: flex;
         appearance: none;
         /*  safari  */
         -webkit-appearance: none;

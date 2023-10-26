@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia';
 import { ref, computed, watch } from 'vue';
 import { useI18n } from "vue-i18n";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import { homeMenuType, langListType } from "../types/all";
 
 export const useNavbarStore = defineStore('navbar', () => {
-    const { locale } = useI18n();
-    const i18n = useI18n();
 
+    const { locale } = useI18n();
+    // console.log('目前語系', locale.value)
+    const i18n = useI18n();
     const i18nHome = computed(() => i18n.t("nav_menu.home"))
     const i18nLogin = computed(() => i18n.t("nav_menu.login"))
     const i18nRegister = computed(() => i18n.t("nav_menu.register"))
@@ -20,18 +22,28 @@ export const useNavbarStore = defineStore('navbar', () => {
         { id: '001', name: 'English', href: '' },
         { id: '002', name: '繁體中文', href: '' }
     ])
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const changeLang = (e: any) => {
-        locale.value = e.target.value
-        localStorage.setItem("locale", locale.value);
-        console.log(localStorage.getItem('loginValidator'))
-        console.log(e.target.value)
+
+    const active = ref<number>(0);
+    const isActive = ref<boolean>(false);
+    const clickActive = (index: number) => {
+        active.value = index;
     }
+
+    const activeLang = ref<number>(0);
+    const isActiveLang = ref<boolean>(false);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const changeLange = (e: any, index: number) => {
+        locale.value = e.target.value
+        activeLang.value = index;
+        localStorage.setItem("locale", locale.value);
+    }
+
     watch(locale, newlocale => {
+        console.log(newlocale)
         localStorage.setItem("locale", newlocale);
     });
 
     return {
-        homeMenu, changeLang, i18nHome, i18nLogin, i18nRegister, locale, langLists
+        homeMenu, i18nHome, i18nLogin, i18nRegister, langLists, active, isActive, clickActive, locale, changeLange, isActiveLang, activeLang
     }
 })

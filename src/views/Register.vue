@@ -1,10 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-    <div>
+    <div class="login-form">
         <div>
             {{ i18nRegister }}
         </div>
-        <el-form ref="ruleFormRef"
+        <el-form ref="ruleRegisterFormRef"
                  :model="ruleRegisterForm"
                  :rules="rulesRegister"
                  label-width="120px"
@@ -31,11 +31,11 @@
             </el-form-item>
             <!---->
             <el-form-item>
-                <el-button @click="resetForm(ruleFormRef)">
+                <el-button @click="registerResetForm(ruleRegisterFormRef)">
                     重置
                 </el-button>
                 <el-button type="primary"
-                           @click="RegisterSubmit(ruleFormRef)">
+                           @click="RegisterSubmit(ruleRegisterFormRef)">
                     送出
                 </el-button>
             </el-form-item>
@@ -48,15 +48,15 @@
     // @ts-ignore
     import { useNavbarStore } from '../stores/nav.ts';
     // @ts-ignore
-    import { useLoginStore } from '../stores/auth.ts';
+    import { useRegisterStore } from '../stores/register';
     //宣告
-    const store = useLoginStore();
+    const store = useRegisterStore();
     const storeNav = useNavbarStore();
     // @ts-ignore
     const { i18nRegister } = storeToRefs(storeNav);
     // @ts-ignore
-    const { rulesRegister, ruleRegisterForm, ruleFormRef } = storeToRefs(store);
+    const { rulesRegister, ruleRegisterForm, ruleRegisterFormRef } = storeToRefs(store);
     // @ts-ignore
-    const { RegisterSubmit, resetForm } = store;
+    const { RegisterSubmit, registerResetForm } = store;
 </script>
 

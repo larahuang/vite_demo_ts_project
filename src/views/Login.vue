@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="login-form">
         <el-form ref="ruleFormRef"
                  :model="ruleForm"
                  :rules="rules"
@@ -32,9 +32,9 @@
 <script setup lang="ts">
     import { storeToRefs } from 'pinia';
     // @ts-ignore
-    import { useLoginStore } from '../stores/auth.ts';
+    import { useIndexStore } from '../stores/index';
     //宣告
-    const store = useLoginStore();
+    const store = useIndexStore();
     // @ts-ignore
     const { rules, ruleForm, ruleFormRef } = storeToRefs(store);
     // @ts-ignore

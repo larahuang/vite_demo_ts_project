@@ -49,7 +49,7 @@ export interface ruleFormType {
 export interface ruleValidatorType{
     email: ({
         required: boolean;
-        message: string;
+        message?: string |any ;
         trigger: string;
         type?: undefined;
     } | {
@@ -60,7 +60,7 @@ export interface ruleValidatorType{
     })[],
     password: ({
         required: boolean;
-        message: string;
+        message: string |any ;
         trigger: string;
     } | {
         min: number;
